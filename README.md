@@ -1,45 +1,32 @@
-# VisaPath — Full-stack MVP
+# VisaPath — Render-ready MVP
 
-A runnable Flask + SQLite prototype for the VisaPath global visa consultation platform.
+## Deploy on Render
+1. Create a GitHub repository named `visapath`.
+2. Upload the **contents of this folder**, not this ZIP.
+3. Go to https://render.com and sign in with GitHub.
+4. Select **New + → Blueprint**.
+5. Choose your `visapath` repository.
+6. Render will read `render.yaml` and configure the Python service automatically.
+7. Click **Apply/Create**.
+8. Open the URL Render gives you, such as `https://visapath.onrender.com`.
 
-## Included
-- Public international-facing website
-- Free pre-assessment
-- User registration/login
-- Paid-assessment workflow (payment is MOCKED)
-- Client dashboard
-- Secure-ish server-side document upload with extension/size controls
-- Document classification/review stub ready to replace with an AI provider
-- Human consultant portal
-- Client/consultant messaging
-- USD pricing + local currency display
-- Company profile identifying the business as Kenya-based
-- Health check endpoint
+The configuration uses:
+- Free Render web service
+- `pip install -r requirements.txt`
+- `gunicorn app:app`
+- `/health` health check
+- Automatically generated `SECRET_KEY`
 
-## Run locally
-1. Install Python 3.10+
-2. `python -m venv .venv`
-3. Activate it
-4. `pip install -r requirements.txt`
-5. `python app.py`
-6. Open http://localhost:5000
+## Demo consultant
+Email: consultant@visapath.local
+Password: ChangeMe123!
 
-Demo consultant:
-- Email: consultant@visapath.local
-- Password: ChangeMe123!
+Change this before real use.
 
-Change the demo password and SECRET_KEY before any real deployment.
+## Important
+This is a testing MVP. Payments are simulated, AI document analysis is a stub, SQLite/local file storage are for development only, and visa requirements are not yet connected to a verified official-source database.
 
-## Production integrations still required
-- Real payment provider (M-Pesa/card) with server-to-server webhook verification
-- Production database (PostgreSQL recommended)
-- Object storage with encryption + signed URLs
-- Authentication hardening, CSRF protection, rate limiting, audit logging
-- AI provider integration for document extraction/analysis
-- A curated visa requirements database with official-source URLs and verification dates
-- Email/SMS/WhatsApp provider
-- Calendar/video consultation integration
-- Business/legal/privacy review for the jurisdictions served
+Do not upload real passports, IDs, bank statements, or other sensitive client documents to the demo.
 
-## Safety/accuracy
-The AI should provide preliminary guidance and document-readiness analysis, never guarantee approval or impersonate immigration authorities. Requirements must be sourced from current official immigration authorities and reviewed when changed.
+## Production work still required
+PostgreSQL, encrypted private object storage, real M-Pesa/card payment verification, production AI/document extraction, official-source visa requirements database, authentication/security hardening, notifications, appointment integration, and privacy/legal review.
