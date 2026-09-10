@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block content %}<div class="formwrap"><p class="eyebrow">FREE PRE-ASSESSMENT</p><h1>Let's understand your visa situation.</h1><p>Nothing is charged for this preliminary screening.</p><form method="post" class="form">
+<label>Nationality<select name="nationality" required>{% for n,c in countries %}<option>{{n}}</option>{% endfor %}</select></label>
+<label>Current country of residence<select name="residence" required>{% for n,c in countries %}<option>{{n}}</option>{% endfor %}</select></label>
+<label>Destination<select name="destination" required>{% for d in destinations %}<option>{{d}}</option>{% endfor %}</select></label>
+<label>Purpose<select name="purpose" required>{% for p in purposes %}<option>{{p}}</option>{% endfor %}</select></label>
+<label>Intended travel date<input type="date" name="travel_date"></label>
+<label>Previous visa refusal? <select name="previous_refusal"><option>No</option><option>Yes</option><option>Not sure</option></select></label>
+<button class="btn">Get preliminary result</button></form></div>{% endblock %}
